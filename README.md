@@ -1,19 +1,8 @@
-# Route Planning Project
-
-This repo contains the starter code for the Route Planning project.
-
+# OpenStreetMap-Route-Planner
+Extends the IO2D map display code to use A* path finding algorithm to find a path between two points on the map.
 <img src="map.png" width="600" height="450" />
 
-## Cloning
-
-When cloning this project, be sure to use the `--recurse-submodules` flag. Using HTTPS:
-```
-git clone https://github.com/udacity/CppND-Route-Planning-Project.git --recurse-submodules
-```
-or with SSH:
-```
-git clone git@github.com:udacity/CppND-Route-Planning-Project.git --recurse-submodules
-```
+This project uses data from [OpenStreetMap project](https://www.openstreetmap.org/)
 
 ## Dependencies for Running Locally
 * cmake >= 3.11.3
