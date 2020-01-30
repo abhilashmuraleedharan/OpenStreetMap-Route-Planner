@@ -1,5 +1,6 @@
 # OpenStreetMap-Route-Planner
 Extends the IO2D map display code to use A* path finding algorithm to find a path between two points on the map.
+
 <img src="map.png" width="600" height="450" />
 
 This project uses data from [OpenStreetMap project](https://www.openstreetmap.org/)
