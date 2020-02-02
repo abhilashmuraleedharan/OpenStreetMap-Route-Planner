@@ -59,6 +59,7 @@ int main(int argc, const char **argv)
     std::cout << "Enter the x and y coordinates of the ending point in the range [0, 100] : ";
     std::cin >> end_x >> end_y;
     std::cout << std::endl;
+    
     // Build Model.
     RouteModel model{osm_data};
 
