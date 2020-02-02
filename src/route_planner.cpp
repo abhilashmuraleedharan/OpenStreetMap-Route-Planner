@@ -42,16 +42,13 @@ void RoutePlanner::AddNeighbors(RouteModel::Node *current_node) {
     }
 }
 
-
-// TODO 5: Complete the NextNode method to sort the open list and return the next node.
-// Tips:
-// - Sort the open_list according to the sum of the h value and g value.
-// - Create a pointer to the node in the list with the lowest sum.
-// - Remove that node from the open_list.
-// - Return the pointer.
-
 RouteModel::Node *RoutePlanner::NextNode() {
-
+    // Sort the open_list according to the sum of the h value and g value
+    std::sort(open_list.begin(), open_list.end(), RoutePlanner::Compare);
+    // Get the lowest (g+h) value node
+    RouteModel::Node *l_sum_node = open_list.back();
+    open_list.pop_back(); 
+    return l_sum_node;
 }
 
 
@@ -88,4 +85,14 @@ void RoutePlanner::AStarSearch() {
 
     // TODO: Implement your solution here.
 
+}
+
+/*
+ * Custom compare function used to sort RouteModel::Nodes in descending order
+ * of their f values where f = g+h
+ */
+bool RoutePlanner::Compare(RouteModel::Node *node1, RouteModel::Node *node2) {
+    int f1 = node1->g_value + node1->h_value;
+    int f2 = node2->g_value + node2->h_value;
+    return f1 > f2;
 }
