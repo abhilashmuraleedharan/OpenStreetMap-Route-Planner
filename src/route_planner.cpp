@@ -77,19 +77,27 @@ std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node 
     return path_found;
 }
 
-
-// TODO 7: Write the A* Search algorithm here.
-// Tips:
-// - Use the AddNeighbors method to add all of the neighbors of the current node to the open_list.
-// - Use the NextNode() method to sort the open_list and return the next node.
-// - When the search has reached the end_node, use the ConstructFinalPath method to return the final path that was found.
-// - Store the final path in the m_Model.path attribute before the method exits. This path will then be displayed on the map tile.
-
 void RoutePlanner::AStarSearch() {
     RouteModel::Node *current_node = nullptr;
-
-    // TODO: Implement your solution here.
-
+    current_node = start_node;
+    if (current_node) {
+        // Add all of the neighbors of the current node to the open_list
+        AddNeighbors(current_node);
+        while(!open_list.empty()) {
+            // Sort the open_list and return the next node.
+            current_node = NextNode();
+            if (current_node == end_node) {
+                // Goal node reached.
+                m_Model.path = ConstructFinalPath(current_node);
+                return;
+            }
+            // Add all of the neighbors of the current node to the open_list
+            AddNeighbors(current_node);
+        }
+        std::cout << "No path found\n";
+    } else {
+        std::cout << "No starting node information available\n"; 
+    }
 }
 
 /*
